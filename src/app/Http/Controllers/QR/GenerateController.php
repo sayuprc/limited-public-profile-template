@@ -14,6 +14,10 @@ class GenerateController extends Controller
      */
     public function showForm(): View
     {
-        return view('qr.generate');
+        $now = now()->toImmutable();
+        $date = $now->format('Y-m-d');
+        $time = $now->addHour()->format('H:i');
+
+        return view('qr.generate', compact('date', 'time'));
     }
 }
