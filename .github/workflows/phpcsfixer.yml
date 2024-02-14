@@ -44,4 +44,4 @@ jobs:
       - name: Run php-cs-fixer
         run: |
           cd src
-          ./vendor/bin/php-cs-fixer fix --path-mode=intersection --dry-run --diff .
+          composer cs

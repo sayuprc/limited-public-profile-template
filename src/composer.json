@@ -55,7 +55,7 @@
         "cs": "php-cs-fixer fix --path-mode=intersection --dry-run --diff .",
         "csf": "php-cs-fixer fix --path-mode=intersection .",
         "stan": "phpstan analyse --memory-limit=-1",
-        "unit": "php artisan test"
+        "test-unit": "php artisan test tests/Unit"
     },
     "extra": {
         "laravel": {

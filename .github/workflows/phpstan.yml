@@ -44,4 +44,4 @@ jobs:
       - name: Run phpstan
         run: |
           cd src
-          ./vendor/bin/phpstan analyse --memory-limit=-1
+          composer stan

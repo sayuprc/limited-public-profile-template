@@ -44,4 +44,4 @@ jobs:
       - name: Run phpunit
         run: |
           cd src
-          ./vendor/bin/phpunit tests/Unit
+          composer test-unit
