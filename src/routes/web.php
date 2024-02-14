@@ -18,6 +18,10 @@ Route::middleware('auth')->group(function (): void {
     Route::prefix('qr')->group(function (): void {
         Route::post('generate', [GenerateController::class, 'handle'])->name('qr.generate');
         Route::get('generate', [GenerateController::class, 'showForm'])->name('qr.generate.form');
+
+        Route::get('show', function (): void {
+            // TODO
+        })->name('qr.show');
     });
 
     Route::get('dashboard', function (): void {
