@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\QR\GenerateController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function (): void {
@@ -13,6 +14,10 @@ Route::middleware('guest')->group(function (): void {
 
 Route::middleware('auth')->group(function (): void {
     Route::get('logout', [LogoutController::class, 'handle'])->name('logout');
+
+    Route::prefix('qr')->group(function (): void {
+        Route::get('generate', [GenerateController::class, 'showForm'])->name('qr.generate.form');
+    });
 
     Route::get('dashboard', function (): void {
         // TODO
