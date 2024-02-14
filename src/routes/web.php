@@ -16,6 +16,7 @@ Route::middleware('auth')->group(function (): void {
     Route::get('logout', [LogoutController::class, 'handle'])->name('logout');
 
     Route::prefix('qr')->group(function (): void {
+        Route::post('generate', [GenerateController::class, 'handle'])->name('qr.generate');
         Route::get('generate', [GenerateController::class, 'showForm'])->name('qr.generate.form');
     });
 
