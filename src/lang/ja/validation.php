@@ -254,5 +254,7 @@ return [
         'updated_at' => '更新日',
         'username' => 'ユーザー名',
         'year' => '年',
+        'expired_at_date' => '日付',
+        'expired_at_time' => '時刻',
     ],
 ];
