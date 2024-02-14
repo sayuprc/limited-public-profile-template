@@ -7,3 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', [LoginController::class, 'handle'])->name('login');
 Route::get('login', [LoginController::class, 'showForm'])->name('login.form');
+
+Route::get('dashboard', function (): void {
+    // TODO
+})->name('dashboard');
