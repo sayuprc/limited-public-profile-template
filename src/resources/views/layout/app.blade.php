@@ -11,16 +11,18 @@
 </head>
 
 <body>
-    @auth
-        <header class="flex h-full">
-            <div class="my-auto grow">
-                <nav class="flex justify-start">
-                    <a class="mr-8" href="{{ route('qr.generate.form') }}">QRコード作成</a>
-                    <a class="mr-8" href="{{ route('logout') }}">ログアウト</a>
-                </nav>
-            </div>
-        </header>
-    @endauth
+    @if (!Request::routeIs('profile*'))
+        @auth
+            <header class="flex h-full">
+                <div class="my-auto grow">
+                    <nav class="flex justify-start">
+                        <a class="mr-8" href="{{ route('qr.generate.form') }}">QRコード作成</a>
+                        <a class="mr-8" href="{{ route('logout') }}">ログアウト</a>
+                    </nav>
+                </div>
+            </header>
+        @endauth
+    @endif
 
     @yield('content')
 </body>
