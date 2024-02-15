@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\QR\GenerateController;
+use App\Http\Controllers\QR\IndexController;
 use App\Http\Controllers\QR\RenderingController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,15 +19,13 @@ Route::middleware('auth')->group(function (): void {
     Route::get('logout', [LogoutController::class, 'handle'])->name('logout');
 
     Route::prefix('qr')->group(function (): void {
+        Route::get('index', [IndexController::class, 'handle'])->name('qr.index');
+
         Route::post('generate', [GenerateController::class, 'handle'])->name('qr.generate');
         Route::get('generate', [GenerateController::class, 'showForm'])->name('qr.generate.form');
 
         Route::get('show/{qr_code_id}', [RenderingController::class, 'handle'])->name('qr.show')->whereUuid('qr_code_id');
     });
-
-    Route::get('dashboard', function (): void {
-        // TODO
-    })->name('dashboard');
 });
 
 Route::middleware('verify.token')->group(function (): void {
