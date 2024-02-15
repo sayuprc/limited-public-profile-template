@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function (): void {
 
         Route::get('show/{qr_code_id}', [RenderingController::class, 'handle'])->name('qr.show')->whereUuid('qr_code_id');
 
-        Route::get('edit/{qr_code_id}', [EditController::class, 'showForm'])->name('qr.edit')->whereUuid('qr_code_id');
+        Route::get('edit/{qr_code_id}', [EditController::class, 'showForm'])->name('qr.edit.form')->whereUuid('qr_code_id');
     });
 });
 
