@@ -5,7 +5,7 @@
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
             <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">QRコード編集</h2>
 
-            <form action="" class="mx-auto max-w-lg rounded-lg border" method="POST">
+            <form action="{{ route('qr.edit') }}" class="mx-auto max-w-lg rounded-lg border" method="POST">
                 @csrf
                 <input name="qr_code_id" type="hidden" value="{{ $qr->qrCodeId }}">
                 <input name="user_id" type="hidden" value="{{ $qr->userId }}">
