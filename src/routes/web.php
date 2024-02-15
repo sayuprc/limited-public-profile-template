@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\QR\GenerateController;
+use App\Http\Controllers\QR\RenderingController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function (): void {
@@ -19,9 +20,7 @@ Route::middleware('auth')->group(function (): void {
         Route::post('generate', [GenerateController::class, 'handle'])->name('qr.generate');
         Route::get('generate', [GenerateController::class, 'showForm'])->name('qr.generate.form');
 
-        Route::get('show', function (): void {
-            // TODO
-        })->name('qr.show');
+        Route::get('show/{qr_code_id}', [RenderingController::class, 'handle'])->name('qr.show')->whereUuid('qr_code_id');
     });
 
     Route::get('dashboard', function (): void {
