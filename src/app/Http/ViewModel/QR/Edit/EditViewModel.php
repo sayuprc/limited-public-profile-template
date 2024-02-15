@@ -23,8 +23,16 @@ readonly class EditViewModel
     /**
      * @return string
      */
-    public function expiredAt(): string
+    public function expiredAtDate(): string
     {
-        return $this->expiredAt->format('Y-m-d H:i');
+        return $this->expiredAt->format('Y-m-d');
+    }
+
+    /**
+     * @return string
+     */
+    public function expiredAtTime(): string
+    {
+        return $this->expiredAt->format('H:i');
     }
 }
