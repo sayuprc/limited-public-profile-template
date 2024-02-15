@@ -41,7 +41,7 @@ class LoginController extends Controller
         if ($this->authManager->guard()->attempt($request->validated())) {
             $request->session()->regenerate();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('qr.index');
         }
 
         return back()->withErrors([
