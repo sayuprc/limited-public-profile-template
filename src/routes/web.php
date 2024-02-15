@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\QR\EditController;
 use App\Http\Controllers\QR\GenerateController;
 use App\Http\Controllers\QR\IndexController;
 use App\Http\Controllers\QR\RenderingController;
@@ -25,6 +26,8 @@ Route::middleware('auth')->group(function (): void {
         Route::get('generate', [GenerateController::class, 'showForm'])->name('qr.generate.form');
 
         Route::get('show/{qr_code_id}', [RenderingController::class, 'handle'])->name('qr.show')->whereUuid('qr_code_id');
+
+        Route::get('edit/{qr_code_id}', [EditController::class, 'showForm'])->name('qr.edit')->whereUuid('qr_code_id');
     });
 });
 
