@@ -22,9 +22,9 @@ class EditController extends Controller
      */
     public function showForm(Request $request, string $qrCodeId, GetInterface $handler): View
     {
-        $response = $handler->handle(new GetRequest($qrCodeId, $request->user()->user_id));
+        $response = $handler->handle(new GetRequest($qrCodeId, $userId = $request->user()->user_id));
 
-        $qr = new EditViewModel($response->qr->qr_code_id, $response->qr->expired_at);
+        $qr = new EditViewModel($response->qr->qr_code_id, $userId, $response->qr->expired_at);
 
         return view('qr.edit', compact('qr'));
     }

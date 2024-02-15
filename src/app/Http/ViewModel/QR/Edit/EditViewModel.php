@@ -10,12 +10,14 @@ readonly class EditViewModel
 {
     /**
      * @param string            $qrCodeId
+     * @param string            $userId
      * @param DateTimeInterface $expiredAt
      *
      * @return void
      */
     public function __construct(
         public string $qrCodeId,
+        public string $userId,
         private DateTimeInterface $expiredAt,
     ) {
     }

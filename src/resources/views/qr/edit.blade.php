@@ -8,6 +8,7 @@
             <form action="" class="mx-auto max-w-lg rounded-lg border" method="POST">
                 @csrf
                 <input name="qr_code_id" type="hidden" value="{{ $qr->qrCodeId }}">
+                <input name="user_id" type="hidden" value="{{ $qr->userId }}">
                 <div class="flex flex-col gap-4 p-4 md:p-8">
                     @error('message')
                         <span class="text-red-400">{{ $message }}</span>
