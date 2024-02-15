@@ -41,9 +41,14 @@ class EditController extends Controller
      */
     public function handle(EditRequest $request, EditInterface $handler): RedirectResponse
     {
-        $qrCodeId = $request->validated('qr_code_id');
-        $userId = $request->validated('user_id');
-        $expiredAt = now()->parse(implode(' ', $request->validated(['expired_at_date', 'expired_at_time'])));
+        [
+            'qr_code_id' => $qrCodeId,
+            'user_id' => $userId,
+            'expired_at_date' => $expiredAtDate,
+            'expired_at_time' => $expiredAtTime
+        ] = $request->validated();
+
+        $expiredAt = now()->parse(implode(' ', [$expiredAtDate, $expiredAtTime]));
 
         $response = $handler->handle(new QREditRequest($qrCodeId, $userId, $expiredAt));
 
