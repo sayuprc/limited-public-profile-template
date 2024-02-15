@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\QR\GenerateController;
 use App\Http\Controllers\QR\RenderingController;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,8 @@ Route::middleware('auth')->group(function (): void {
     Route::get('dashboard', function (): void {
         // TODO
     })->name('dashboard');
+});
+
+Route::middleware('verify.token')->group(function (): void {
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 });
