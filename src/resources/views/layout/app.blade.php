@@ -16,6 +16,7 @@
             <header class="flex h-full">
                 <div class="my-auto grow">
                     <nav class="flex justify-start">
+                        <a class="mr-8" href="{{ route('qr.index') }}">QRコード一覧</a>
                         <a class="mr-8" href="{{ route('qr.generate.form') }}">QRコード作成</a>
                         <a class="mr-8" href="{{ route('logout') }}">ログアウト</a>
                     </nav>
