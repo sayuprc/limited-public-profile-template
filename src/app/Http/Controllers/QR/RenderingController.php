@@ -24,6 +24,7 @@ class RenderingController extends Controller
         $response = $handler->handle(new RenderingRequest($request->user()->user_id, $qrCodeId));
 
         return view('qr.show', [
+            'qrCodeId' => $qrCodeId,
             'expiredAt' => $response->expiredAt->format('Y-m-d H:i'),
             'data' => $response->data,
         ]);
