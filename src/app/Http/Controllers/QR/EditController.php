@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\QR;
 
+use App\Domain\QR\UserId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QR\EditRequest;
 use App\Http\ViewModel\QR\Edit\EditViewModel;
@@ -28,7 +29,7 @@ class EditController extends Controller
     {
         $response = $handler->handle(new GetRequest($qrCodeId, $userId = $request->user()->user_id));
 
-        $qr = new EditViewModel($response->qr->qr_code_id, $userId, $response->qr->expired_at);
+        $qr = new EditViewModel($response->qr->qrCodeId, new UserId($userId), $response->qr->expiredAt);
 
         return view('qr.edit', compact('qr'));
     }

@@ -4,21 +4,23 @@ declare(strict_types=1);
 
 namespace App\Http\ViewModel\QR\GetList;
 
-use DateTimeInterface;
+use App\Domain\QR\CreatedAt;
+use App\Domain\QR\ExpiredAt;
+use App\Domain\QR\QRCodeId;
 
 readonly class GetListViewModel
 {
     /**
-     * @param string            $qrCodeId
-     * @param DateTimeInterface $expiredAt
-     * @param DateTimeInterface $createdAt
+     * @param QRCodeId  $qrCodeId
+     * @param ExpiredAt $expiredAt
+     * @param CreatedAt $createdAt
      *
      * @return void
      */
     public function __construct(
-        public string $qrCodeId,
-        private DateTimeInterface $expiredAt,
-        private DateTimeInterface $createdAt
+        public QRCodeId $qrCodeId,
+        private ExpiredAt $expiredAt,
+        private CreatedAt $createdAt
     ) {
     }
 
@@ -27,7 +29,7 @@ readonly class GetListViewModel
      */
     public function expiredAt(): string
     {
-        return $this->expiredAt->format('Y-m-d H:i');
+        return $this->expiredAt->value->format('Y-m-d H:i');
     }
 
     /**
@@ -35,6 +37,6 @@ readonly class GetListViewModel
      */
     public function createdAt(): string
     {
-        return $this->createdAt->format('Y-m-d H:i:s');
+        return $this->createdAt->value->format('Y-m-d H:i:s');
     }
 }

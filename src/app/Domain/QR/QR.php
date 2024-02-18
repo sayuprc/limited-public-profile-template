@@ -8,6 +8,7 @@ readonly class QR
 {
     /**
      * @param QRCodeId  $qrCodeId
+     * @param UserId    $userId
      * @param ExpiredAt $expiredAt
      * @param CreatedAt $createdAt
      *
@@ -15,6 +16,7 @@ readonly class QR
      */
     public function __construct(
         public QRCodeId $qrCodeId,
+        public UserId $userId,
         public ExpiredAt $expiredAt,
         public CreatedAt $createdAt
     ) {
