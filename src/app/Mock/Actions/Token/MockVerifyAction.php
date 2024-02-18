@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Debug\Actions\Token;
+namespace App\Mock\Actions\Token;
 
 use App\UseCases\Token\VerifyInterface;
 
-class NopVerifyAction implements VerifyInterface
+class MockVerifyAction implements VerifyInterface
 {
     /**
      * @inheritDoc

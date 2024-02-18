@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Debug\Actions\QR\Get;
+namespace App\Mock\Actions\QR\Get;
 
 use App\Domain\QR\CreatedAt;
 use App\Domain\QR\ExpiredAt;

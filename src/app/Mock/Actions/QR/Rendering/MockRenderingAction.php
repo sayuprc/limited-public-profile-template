@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Debug\Actions\QR\Rendering;
+namespace App\Mock\Actions\QR\Rendering;
 
 use App\UseCases\QR\Rendering\RenderingInterface;
 use App\UseCases\QR\Rendering\RenderingRequest;
 use App\UseCases\QR\Rendering\RenderingResponse;
 use DateTime;
 
-class NopRenderingAction implements RenderingInterface
+class MockRenderingAction implements RenderingInterface
 {
     /**
      * @inheritDoc
