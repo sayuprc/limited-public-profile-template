@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Debug\Actions\QR\Rendering;
+namespace Tests\Unit\Mock\Actions\QR\Rendering;
 
-use App\Debug\Actions\QR\Rendering\NopRenderingAction;
+use App\Mock\Actions\QR\Rendering\MockRenderingAction;
 use App\UseCases\QR\Rendering\RenderingRequest;
 use App\UseCases\QR\Rendering\RenderingResponse;
 use PHPUnit\Framework\TestCase;
 
-class NopRenderingActionTest extends TestCase
+class MockRenderingActionTest extends TestCase
 {
     /**
      * @return void
      */
     public function testHandler(): void
     {
-        $response = (new NopRenderingAction())->handle(new RenderingRequest('', ''));
+        $response = (new MockRenderingAction())->handle(new RenderingRequest('', ''));
 
         $this->assertTrue($response instanceof RenderingResponse);
         $this->assertSame('data', $response->data);

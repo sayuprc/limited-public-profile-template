@@ -28,7 +28,7 @@ class EditController extends Controller
     {
         $response = $handler->handle(new GetRequest($qrCodeId, $userId = $request->user()->user_id));
 
-        $qr = new EditViewModel($response->qr->qr_code_id, $userId, $response->qr->expired_at);
+        $qr = new EditViewModel($response->qr->qrCodeId->value, $userId, $response->qr->expiredAt->value);
 
         return view('qr.edit', compact('qr'));
     }

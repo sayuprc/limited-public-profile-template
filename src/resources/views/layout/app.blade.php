@@ -13,15 +13,20 @@
 <body>
     @if (!Request::routeIs('profile*'))
         @auth
-            <header class="flex h-full">
-                <div class="my-auto grow">
-                    <nav class="flex justify-start">
-                        <a class="mr-8" href="{{ route('qr.index') }}">QRコード一覧</a>
-                        <a class="mr-8" href="{{ route('qr.generate.form') }}">QRコード作成</a>
-                        <a class="mr-8" href="{{ route('logout') }}">ログアウト</a>
-                    </nav>
+            <div class="bg-white lg:pb-12">
+                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                    <header class="flex items-center justify-between py-4 md:py-8">
+                        <nav class="lg:right gap-12">
+                            <a class="mr-8 text-lg font-semibold text-gray-600 transition duration-100"
+                                href="{{ route('qr.index') }}">一覧</a>
+                            <a class="mr-8 text-lg font-semibold text-gray-600 transition duration-100"
+                                href="{{ route('qr.generate.form') }}">作成</a>
+                            <a class="mr-8 text-lg font-semibold text-gray-600 transition duration-100"
+                                href="{{ route('logout') }}">ログアウト</a>
+                        </nav>
+                    </header>
                 </div>
-            </header>
+            </div>
         @endauth
     @endif
 

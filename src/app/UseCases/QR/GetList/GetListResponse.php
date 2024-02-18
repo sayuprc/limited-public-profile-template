@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UseCases\QR\GetList;
 
-use App\Models\QR;
+use App\Domain\QR\QR;
 
 readonly class GetListResponse
 {

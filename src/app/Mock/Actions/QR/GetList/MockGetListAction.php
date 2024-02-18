@@ -2,9 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Debug\Actions\QR\GetList;
+namespace App\Mock\Actions\QR\GetList;
 
-use App\Models\QR;
+use App\Domain\QR\CreatedAt;
+use App\Domain\QR\ExpiredAt;
+use App\Domain\QR\QR;
+use App\Domain\QR\QRCodeId;
+use App\Domain\QR\UserId;
 use App\UseCases\QR\GetList\GetListInterface;
 use App\UseCases\QR\GetList\GetListResponse;
 
@@ -23,10 +27,12 @@ class MockGetListAction implements GetListInterface
             ['BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB', $now->parse('2024-01-01 11:00'), $now->parse('2024-01-01 10:00')],
             ['CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC', $now->parse('2024-01-01 12:00'), $now->parse('2024-01-01 11:00')],
         ] as [$qrCodeId, $expiredAt, $createdAt]) {
-            $qr = new QR();
-            $qr->qr_code_id = $qrCodeId;
-            $qr->expired_at = $expiredAt;
-            $qr->created_at = $createdAt;
+            $qr = new QR(
+                new QRCodeId($qrCodeId),
+                new UserId('FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF'),
+                new ExpiredAt($expiredAt),
+                new CreatedAt($createdAt)
+            );
 
             $qrs[] = $qr;
         }

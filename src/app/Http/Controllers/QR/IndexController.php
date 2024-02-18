@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\QR;
 
+use App\Domain\QR\QR;
 use App\Http\Controllers\Controller;
 use App\Http\ViewModel\QR\GetList\GetListViewModel;
-use App\Models\QR;
 use App\UseCases\QR\GetList\GetListInterface;
 use Illuminate\Contracts\View\View;
 
@@ -22,7 +22,11 @@ class IndexController extends Controller
         $response = $handler->handle();
 
         $viewModels = array_map(
-            fn (QR $qr): GetListViewModel => new GetListViewModel($qr->qr_code_id, $qr->expired_at, $qr->created_at),
+            fn (QR $qr): GetListViewModel => new GetListViewModel(
+                $qr->qrCodeId->value,
+                $qr->expiredAt->value,
+                $qr->createdAt->value
+            ),
             $response->qrs
         );
 

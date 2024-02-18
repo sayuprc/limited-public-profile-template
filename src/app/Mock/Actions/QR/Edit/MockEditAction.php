@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Debug\Actions\QR\Edit;
+namespace App\Mock\Actions\QR\Edit;
 
 use App\UseCases\QR\Edit\EditInterface;
 use App\UseCases\QR\Edit\EditRequest;
