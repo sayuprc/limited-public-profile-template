@@ -22,7 +22,11 @@ class IndexController extends Controller
         $response = $handler->handle();
 
         $viewModels = array_map(
-            fn (QR $qr): GetListViewModel => new GetListViewModel($qr->qrCodeId, $qr->expiredAt, $qr->createdAt),
+            fn (QR $qr): GetListViewModel => new GetListViewModel(
+                $qr->qrCodeId->value,
+                $qr->expiredAt->value,
+                $qr->createdAt->value
+            ),
             $response->qrs
         );
 
